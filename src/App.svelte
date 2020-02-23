@@ -13,6 +13,12 @@
 		const resJSON = await res.json();
 		jokes = [resJSON.data]
 	}
+
+	const funx = async () => {
+		const res = await fetch('/.netlify/funx/funk')
+		const resJSON = res.json()
+		console.log(resJSON)
+	}
 </script>
 
 <main>
@@ -23,6 +29,8 @@
 		<button>Search Jokes</button>
 		<button type="button" on:click|preventDefault={randomJoke}>Random Joke</button>
 	</form>
+
+	<button on:click={funx}>Funx</button>
 
 	{#each jokes as joke}
 		<p>{joke.joke}</p>
